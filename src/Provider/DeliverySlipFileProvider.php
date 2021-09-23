@@ -56,7 +56,7 @@ final class DeliverySlipFileProvider implements InvoiceFileProviderInterface
             $this->invoiceFileManager->save($invoicePdf);
         }
 
-        $invoicePdf->setFullPath($this->invoicesDirectory . '/' . $invoiceFileName);
+        $invoicePdf->setFullPath($this->invoicesDirectory.'/'.$invoiceFileName);
 
         return $invoicePdf;
     }

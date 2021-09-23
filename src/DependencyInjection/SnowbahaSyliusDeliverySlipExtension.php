@@ -12,11 +12,10 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 final class SnowbahaSyliusDeliverySlipExtension extends Extension
 {
-
     public function load(array $configs, ContainerBuilder $container): void
     {
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
         $loader->load('services.xml');
     }
@@ -25,6 +24,4 @@ final class SnowbahaSyliusDeliverySlipExtension extends Extension
     {
         return new Configuration();
     }
-
-
 }
