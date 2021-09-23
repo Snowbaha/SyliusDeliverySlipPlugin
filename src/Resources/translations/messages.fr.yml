@@ -1,0 +1,6 @@
+sylius_delivery_slip_plugin:
+    ui:
+        delivery_slip: 'Bon de livraison'
+        download_invoice: 'Télécharger Facture'
+        download_delivery_slip: 'Télécharger Bon livraison'
+

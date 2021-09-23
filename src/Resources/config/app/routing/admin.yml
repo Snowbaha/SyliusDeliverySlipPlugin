@@ -1,0 +1,5 @@
+snowbaha_admin_delivery_slip_download:
+    path: /delivery-slip/{id}/download
+    methods: [GET]
+    defaults:
+        _controller: snowbaha_delivery_slip_plugin.ui.action.download_delivery_slip

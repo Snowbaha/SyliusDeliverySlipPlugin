@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults autoconfigure="true" autowire="true" public="true" />
+
+        <service id="snowbaha_delivery_slip_plugin.ui.action.download_delivery_slip" class="Snowbaha\SyliusDeliverySlipPlugin\Ui\Action\DownloadDeliverySlipAction">
+            <argument type="service" id="sylius_invoicing_plugin.repository.invoice" />
+            <argument type="service" id="security.authorization_checker" />
+            <argument type="service" id="Snowbaha\SyliusDeliverySlipPlugin\Provider\DeliverySlipFileProvider" />
+        </service>
+
+    </services>
+</container>

@@ -1,0 +1,30 @@
+parameters:
+    snowbaha.sylius_delivery_slip_save_path: "%kernel.project_dir%/private/delivery_slip/"
+    snowbaha.sylius_filesystem_adapter.delivery_slip: "snowbaha_sylius_delivery_slip"
+
+
+sylius_grid:
+    grids:
+        sylius_invoicing_plugin_invoice:
+            actions:
+                item:
+                    download_delivery_slip:
+                        type: default
+                        label: sylius_delivery_slip_plugin.ui.download_delivery_slip
+                        icon: download
+                        options:
+                            link:
+                                route: snowbaha_admin_delivery_slip_download
+                                parameters:
+                                    id: resource.id
+
+knp_gaufrette:
+    adapters:
+        snowbaha_sylius_delivery_slip:
+            local:
+                directory: "%snowbaha.sylius_delivery_slip_save_path%"
+                create: true
+    filesystems:
+        snowbaha_sylius_delivery_slip:
+            adapter: "%snowbaha.sylius_filesystem_adapter.delivery_slip%"
+

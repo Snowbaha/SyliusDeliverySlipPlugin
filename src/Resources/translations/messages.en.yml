@@ -1,0 +1,5 @@
+sylius_invoicing_plugin:
+    ui:
+        delivery_slip: Delivery Slip
+        download_invoice: 'Download invoice'
+        download_delivery_slip: 'Download delivery slip'
