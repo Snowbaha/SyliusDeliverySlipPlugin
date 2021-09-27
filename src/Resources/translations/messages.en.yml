@@ -1,5 +1,9 @@
 sylius_invoicing_plugin:
     ui:
+        address_billing: 'Billing address'
+        address_shipping: 'Shipping Address'
+        footer_address: 'Our address'
+        footer_terms: 'Check our terms in our website'
         delivery_slip: Delivery Slip
         download_invoice: 'Download invoice'
         download_delivery_slip: 'Download delivery slip'

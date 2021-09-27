@@ -39,5 +39,8 @@ Add a delivery slip download with the Sylius invoice plugin.
 7. Clear cache:
 
     ```bash
-    bin/console cache:clear
+    php bin/console cache:clear
     ```
+
+8. custom translations and  PDF template
+

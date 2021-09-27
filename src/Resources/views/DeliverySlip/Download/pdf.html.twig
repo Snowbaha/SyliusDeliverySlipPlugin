@@ -1,6 +1,3 @@
-{# Pour voir les changemens, il faut supprimer les PDF déjà généré !
-   Pour custom @see : https://docs.sylius.com/en/1.10/cookbook/payments/custom-invoice.html
-#}
 {% set shopBillingData = invoice.shopBillingData %}
 
 <html lang="{{ invoice.localeCode }}">
@@ -23,8 +20,8 @@
         .invoice-box table tr.item td.name { text-align: left; }
         .invoice-box table .totals { border-top: 2px solid #eee; }
         .invoice-box .bold { font-weight: bold; }
-        .invoice-tax-heading { border-bottom: 1px solid #ddd; background: #eee; text-align: center; }
-        .invoice-tax-item { border-bottom: 1px solid #ddd; }
+
+        .footer{color: #4b4a4a; font-size: 11px; position: absolute; bottom: 5px; text-align: center;}
     </style>
 </head>
 <body>
@@ -52,7 +49,7 @@
                 <table>
                     <tr>
                         <td id="billing-data">
-                            {{ 'sylius_invoicing_plugin.ui.buyer'|trans([], 'messages', invoice.localeCode) }}<br/>
+                            {{ 'sylius_delivery_slip_plugin.ui.address_billing'|trans([], 'messages', invoice.localeCode) }}<br/>
                             <strong>{{ invoice.billingData.firstName }} {{ invoice.billingData.lastName }}</strong><br/>
                             {% if invoice.billingData.company %}
                                 {{ invoice.billingData.company }}<br/>
@@ -62,16 +59,16 @@
                             {{ invoice.billingData.countryCode|sylius_country_name|upper }}
                         </td>
 
-                        {% if shopBillingData %}
+                        {% if invoice.order.shippingAddress.firstName is defined %}
                             <td id="shop-billing-data">
-                                {{ 'sylius_invoicing_plugin.ui.seller'|trans([], 'messages', invoice.localeCode) }}<br/>
-                                {% if shopBillingData.company %}<strong>{{ shopBillingData.company }}</strong><br/>{% endif %}
-                                {% if shopBillingData.street %}{{ shopBillingData.street }}<br/>{% endif %}
-                                {% if shopBillingData.city %}{{ shopBillingData.postcode }} {{ shopBillingData.city }}<br/>{% endif %}
-                                {% if shopBillingData.taxId %}{{ shopBillingData.taxId }}<br/>{% endif %}
-                                {% if shopBillingData.countryCode %}
-                                    {{ shopBillingData.countryCode|sylius_country_name|upper }}
+                                {{ 'sylius_delivery_slip_plugin.ui.address_shipping'|trans([], 'messages', invoice.localeCode) }}<br/>
+                                <strong>{{ invoice.order.shippingAddress.firstName }} {{ invoice.order.shippingAddress.lastName }}</strong><br/>
+                                {% if invoice.order.shippingAddress.company %}
+                                    {{ invoice.order.shippingAddress.company }}<br/>
                                 {% endif %}
+                                {{ invoice.order.shippingAddress.street }}<br/>
+                                {{ invoice.order.shippingAddress.postcode }} {{ invoice.order.shippingAddress.city }}<br/>
+                                {{ invoice.order.shippingAddress.countryCode|sylius_country_name|upper }}
                             </td>
                         {% endif %}
                     </tr>
@@ -97,9 +94,23 @@
             </tr>
         {% endfor %}
 
+        <tr class="totals">
+            <td colspan="3">&nbsp;</td>
+        </tr>
+        <tr class="totals bold">
+            <td colspan="2"></td>
+            <td>{{ 'sylius.ui.total'|trans([], 'messages', invoice.localeCode) }}: {{ '%0.2f'|format(invoice.total/100) }} {{ invoice.currencyCode }}</td>
+        </tr>
     </table>
 
+</div>
 
+<div class="footer">
+    {{ 'sylius_delivery_slip_plugin.ui.footer_address'|trans([], 'messages', invoice.localeCode) }}
+    {% if shopBillingData %}
+        {{ shopBillingData.street }} - {{ shopBillingData.postcode }} {{ shopBillingData.city }}
+    {% endif %}
+    <br>{{ 'sylius_delivery_slip_plugin.ui.footer_terms'|trans([], 'messages', invoice.localeCode) }}
 </div>
 
 

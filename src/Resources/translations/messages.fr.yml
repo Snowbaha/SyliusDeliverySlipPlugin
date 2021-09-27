@@ -1,5 +1,9 @@
 sylius_delivery_slip_plugin:
     ui:
+        address_billing: 'Adresse de facturation'
+        address_shipping: 'Adresse de livraison'
+        footer_address: 'Notre adresse'
+        footer_terms: 'Vous pouvez voir nos CGV sur notre site'
         delivery_slip: 'Bon de livraison'
         download_invoice: 'Télécharger Facture'
         download_delivery_slip: 'Télécharger Bon livraison'
