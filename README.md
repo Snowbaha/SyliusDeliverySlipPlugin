@@ -1,11 +1,11 @@
-# Delivery Note Plugin (WIP)
+# Delivery Note Plugin
 
 Add a delivery slip download with the Sylius invoice plugin.
 
 
-### Legacy installation
+### Installation
 
-1. Be sure to have Sylius Invoice Plugin installed
+1. Be sure to have [Sylius Invoice Plugin](https://github.com/Sylius/InvoicingPlugin) installed
 
 3. Require plugin with composer:
 
@@ -43,4 +43,4 @@ Add a delivery slip download with the Sylius invoice plugin.
     ```
 
 8. custom translations and  PDF template
-
+    See more at [the documentation](docs/DOC.md)
