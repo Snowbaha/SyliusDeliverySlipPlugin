@@ -1,7 +1,8 @@
 # Delivery Note Plugin
 
-Add a delivery slip download with the Sylius invoice plugin.
+[![Latest Stable Version](http://poser.pugx.org/snowbaha/sylius-delivery-slip-plugin/v)](https://packagist.org/packages/snowbaha/sylius-delivery-slip-plugin) [![Total Downloads](http://poser.pugx.org/snowbaha/sylius-delivery-slip-plugin/downloads)](https://packagist.org/packages/snowbaha/sylius-delivery-slip-plugin) [![Latest Unstable Version](http://poser.pugx.org/snowbaha/sylius-delivery-slip-plugin/v/unstable)](https://packagist.org/packages/snowbaha/sylius-delivery-slip-plugin) 
 
+Add a delivery slip download (PDF) with the Sylius invoice plugin.
 
 ### Installation
 
